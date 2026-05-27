@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>LED 模組教學</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>LED 模組教學</h1>
+</header>
+
+<section class="content">
+
+    <h2>LED 介紹</h2>
+
+    <p>
+        LED 是最基礎的電子元件，
+        可用於輸出訊號與燈光控制。
+    </p>
+
+    <h2>接線方式</h2>
+
+    <ul>
+        <li>LED 正極 → GPIO 23</li>
+        <li>LED 負極 → GND</li>
+    </ul>
+
+    <img src="../images/led-wiring.png">
+
+    <h2>範例程式</h2>
+
+<pre>
+<code>
+int led = 23;
+
+void setup() {
+    pinMode(led, OUTPUT);
+}
+
+void loop() {
+
+    digitalWrite(led, HIGH);
+    delay(1000);
+
+    digitalWrite(led, LOW);
+    delay(1000);
+}
+</code>
+</pre>
+
+</section>
+
+</body>
+</html>
