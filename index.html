@@ -1,522 +1,126 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
-
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESP32 教學網站</title>
-
-    <style>
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
-
-        body{
-            font-family:Arial;
-            background:#020617;
-            color:white;
-        }
-
-        header{
-
-            position:sticky;
-            top:0;
-
-            background:#0f172a;
-
-            padding:20px 50px;
-
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-
-            border-bottom:1px solid #38bdf8;
-        }
-
-        header h1{
-            color:#38bdf8;
-        }
-
-        nav a{
-
-            color:white;
-            text-decoration:none;
-
-            margin-left:20px;
-
-            transition:0.3s;
-        }
-
-        nav a:hover{
-            color:#38bdf8;
-        }
-
-        .hero{
-
-            height:90vh;
-
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-
-            text-align:center;
-
-            background:
-            linear-gradient(
-                135deg,
-                #0ea5e9,
-                #1d4ed8,
-                #312e81
-            );
-        }
-
-        .hero h2{
-
-            font-size:70px;
-
-            margin-bottom:20px;
-        }
-
-        .hero p{
-
-            font-size:24px;
-
-            max-width:700px;
-        }
-
-        .btn{
-
-            margin-top:30px;
-
-            padding:15px 35px;
-
-            background:#38bdf8;
-
-            color:black;
-
-            text-decoration:none;
-
-            border-radius:12px;
-
-            font-weight:bold;
-
-            transition:0.3s;
-        }
-
-        .btn:hover{
-
-            transform:scale(1.1);
-
-            box-shadow:0 0 20px #38bdf8;
-        }
-
-        .content{
-
-            width:90%;
-
-            max-width:1300px;
-
-            margin:auto;
-
-            padding:70px 0;
-        }
-
-        .content h2{
-
-            color:#38bdf8;
-
-            margin-bottom:20px;
-
-            font-size:40px;
-        }
-
-        .content p{
-
-            line-height:2;
-
-            color:#cbd5e1;
-
-            margin-bottom:20px;
-        }
-
-        .cards{
-
-            display:grid;
-
-            grid-template-columns:
-            repeat(auto-fit,minmax(280px,1fr));
-
-            gap:30px;
-
-            margin-top:40px;
-        }
-
-        .card{
-
-            background:#1e293b;
-
-            padding:30px;
-
-            border-radius:20px;
-
-            transition:0.3s;
-
-            border:1px solid rgba(56,189,248,0.2);
-        }
-
-        .card:hover{
-
-            transform:translateY(-10px);
-
-            box-shadow:0 0 25px #38bdf8;
-        }
-
-        .card h3{
-
-            color:#38bdf8;
-
-            margin-bottom:15px;
-        }
-
-        table{
-
-            width:100%;
-
-            border-collapse:collapse;
-
-            margin-top:30px;
-        }
-
-        table th{
-
-            background:#38bdf8;
-
-            color:black;
-
-            padding:15px;
-        }
-
-        table td{
-
-            padding:15px;
-
-            border:1px solid #334155;
-
-            text-align:center;
-        }
-
-        table tr:nth-child(even){
-
-            background:#1e293b;
-        }
-
-        footer{
-
-            text-align:center;
-
-            padding:40px;
-
-            background:#0f172a;
-
-            margin-top:80px;
-        }
-
-        @media(max-width:768px){
-
-            header{
-
-                flex-direction:column;
-
-                gap:20px;
-            }
-
-            .hero h2{
-                font-size:45px;
-            }
-
-            .hero p{
-                font-size:18px;
-            }
-        }
-
-    </style>
-
+    <title>ESP32 互動教學網 - TechBright</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-
-    <h1>ESP32 教學網站</h1>
-
-    <nav>
-
-        <a href="#versions">ESP32版本</a>
-        <a href="#gpio">GPIO腳位</a>
-        <a href="#features">功能介紹</a>
-        <a href="led.html">LED模組</a>
-
-    </nav>
-
-</header>
-
-<section class="hero">
-
-    <h2>ESP32 基礎教學網站</h2>
-
-    <p>
-
-        完整 ESP32 教學、
-        GPIO 腳位、
-        感測器、
-        IoT 模組、
-        接線圖與程式範例
-
-    </p>
-
-    <a href="led.html" class="btn">
-        開始學習 LED
-    </a>
-
-</section>
-
-<section class="content" id="versions">
-
-    <h2>ESP32 版本介紹</h2>
-
-    <div class="cards">
-
-        <div class="card">
-
-            <h3>ESP32 DevKit V1</h3>
-
-            <p>
-                最常見的 ESP32 開發板，
-                適合初學者。
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>ESP32-WROOM-32</h3>
-
-            <p>
-                常用 WiFi + Bluetooth 模組。
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>ESP32-S3</h3>
-
-            <p>
-                新世代 ESP32，
-                支援 AI 與 USB。
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>ESP32-C3</h3>
-
-            <p>
-                RISC-V 架構，
-                超低功耗。
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="content" id="gpio">
-
-    <h2>GPIO 腳位介紹</h2>
-
-    <table>
-
-        <tr>
-            <th>GPIO</th>
-            <th>功能</th>
-            <th>用途</th>
-        </tr>
-
-        <tr>
-            <td>GPIO21</td>
-            <td>I2C SDA</td>
-            <td>OLED 感測器</td>
-        </tr>
-
-        <tr>
-            <td>GPIO22</td>
-            <td>I2C SCL</td>
-            <td>OLED 感測器</td>
-        </tr>
-
-        <tr>
-            <td>GPIO23</td>
-            <td>SPI MOSI</td>
-            <td>SPI 傳輸</td>
-        </tr>
-
-        <tr>
-            <td>GPIO2</td>
-            <td>內建 LED</td>
-            <td>LED 控制</td>
-        </tr>
-
-        <tr>
-            <td>GPIO34</td>
-            <td>ADC Input</td>
-            <td>類比輸入</td>
-        </tr>
-
-    </table>
-
-</section>
-
-<section class="content" id="features">
-
-    <h2>ESP32 功能介紹</h2>
-
-    <div class="cards">
-
-        <div class="card">
-
-            <h3>WiFi</h3>
-
-            <p>
-                可連接無線網路，
-                製作 IoT 系統。
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>Bluetooth</h3>
-
-            <p>
-                支援 BLE 與藍牙通訊。
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>PWM</h3>
-
-            <p>
-                控制 LED 與馬達速度。
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>ADC</h3>
-
-            <p>
-                可讀取感測器類比訊號。
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>Deep Sleep</h3>
-
-            <p>
-                低功耗模式，
-                適合電池裝置。
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>Dual Core</h3>
-
-            <p>
-                雙核心 CPU，
-                提升效能。
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="content">
-
-    <h2>模組教學</h2>
-
-    <div class="cards">
-
-        <div class="card">
-
-            <h3>LED 模組</h3>
-
-            <p>
-                學習 LED 控制與 GPIO 輸出。
-            </p>
-
-            <a href="led.html" class="btn">
-                進入教學
-            </a>
-
-        </div>
-
-        <div class="card">
-
-            <h3>DHT11 溫濕度</h3>
-
-            <p>
-                讀取溫度與濕度資料。
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>OLED 顯示器</h3>
-
-            <p>
-                顯示文字與圖形。
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>超音波模組</h3>
-
-            <p>
-                偵測距離與障礙物。
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<footer>
-
-    <p>
-        ESP32 教學網站 © 2026
-    </p>
-
-</footer>
-
+    <header class="navbar">
+        <div class="logo">ESP32 <span>TechLab</span></div>
+        <nav>
+            <a href="#intro" class="nav-link active" onclick="switchTab('intro')">版本介紹</a>
+            <a href="#pinout" class="nav-link" onclick="switchTab('pinout')">引腳說明</a>
+            <a href="#features" class="nav-link" onclick="switchTab('features')">核心功能</a>
+            <a href="#modules" class="nav-link" onclick="switchTab('modules')">外接模組教學</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <section id="intro-content" class="tab-content active-content">
+            <h2>ESP32 常見版本介紹</h2>
+            <p class="subtitle">選擇適合你專案的開發板</p>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>ESP32-WROOM-32</h3>
+                    <p class="tag">最經典</p>
+                    <p>市場上最常見的標準版本，內建 Wi-Fi 與藍牙，具備 38 或 30 個引腳，非常適合初學者入門與專案原型設計。</p>
+                </div>
+                <div class="card">
+                    <h3>ESP32-CAM</h3>
+                    <p class="tag-accent">多媒體</p>
+                    <p>整合了 OV2640 攝影機模組與 MicroSD 卡槽，專為影像辨識、縮時攝影與視訊串流設計的低成本方案。</p>
+                </div>
+                <div class="card">
+                    <h3>ESP32-S3</h3>
+                    <p class="tag-new">新一代</p>
+                    <p>搭載強大的 32 位元 LX7 雙核心處理器，新增向量指令集以加速 AI 機器學習運算，並擁有更多可用引腳。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pinout-content" class="tab-content">
+            <h2>ESP32 Pinout 引腳定義</h2>
+            <p class="subtitle">標準 30-Pin NodeMCU 開發板腳位參考</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>引腳名稱</th>
+                            <th>主要功能</th>
+                            <th>注意事項</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge pin-power">3V3</span> / <span class="badge pin-power">GND</span></td>
+                            <td>電源輸入/輸出、系統接地</td>
+                            <td>嚴禁將 5V 電源直接接至 3V3 引腳。</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge pin-gpio">GPIO 2</span></td>
+                            <td>通用輸入輸出、內建 LED</td>
+                            <td>板載藍色 LED 連接在此腳位，可用於測試基本閃爍。</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge pin-adc">GPIO 32 - 39</span></td>
+                            <td>ADC1 (類比數位轉換器)</td>
+                            <td>當啟用 Wi-Fi 時，ADC2 引腳將無法正常讀取類比訊號，請優先使用 ADC1。</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge pin-i2c">GPIO 21 (SDA) / 22 (SCL)</span></td>
+                            <td>I2C 通訊介面</td>
+                            <td>常用於連接 LCD 顯示器、OLED 螢幕或多種感測器。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="features-content" class="tab-content">
+            <h2>ESP32 核心強大功能</h2>
+            <p class="subtitle">強大的硬體效能，專為物聯網而生</p>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h4>🌐 雙模無線通訊</h4>
+                    <p>支援 802.11 b/g/n Wi-Fi 與藍牙 v4.2 / BLE（低功耗藍牙），輕鬆實現遠端遙控與數據傳輸。</p>
+                </div>
+                <div class="feature-item">
+                    <h4>⚡ 雙核心處理器</h4>
+                    <p>搭載 Tensilica Xtensa 32-bit LX6 雙核心處理器，時脈高達 240MHz，支援 FreeRTOS 多工運作。</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔌 豐富的週邊介面</h4>
+                    <p>內建 PWM、ADC、DAC、SPI、I2C、UART 以及電容式觸摸感應引腳（Touch Pins）。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="modules-content" class="tab-content">
+            <h2>市售外接模組實戰教學</h2>
+            <p class="subtitle">點擊下方模組名稱，切換完整的接線圖與範例程式</p>
+            
+            <div class="module-wrapper">
+                <div class="module-sidebar">
+                    <button class="mod-btn active" onclick="loadModule('led')">💡 基礎 LED 閃爍</button>
+                    <button class="mod-btn" onclick="loadModule('dht11')">🌡️ DHT11 溫濕度計</button>
+                    <button class="mod-btn" onclick="loadModule('relay')">🔌 繼電器控制 (Relay)</button>
+                </div>
+                
+                <div class="module-detail" id="module-detail-box">
+                    </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 ESP32 TechLab 教學網. 科技明亮風格設計.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
