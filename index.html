@@ -1,11 +1,250 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESP32 教學網站</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial;
+            background:#020617;
+            color:white;
+        }
+
+        header{
+
+            position:sticky;
+            top:0;
+
+            background:#0f172a;
+
+            padding:20px 50px;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            border-bottom:1px solid #38bdf8;
+        }
+
+        header h1{
+            color:#38bdf8;
+        }
+
+        nav a{
+
+            color:white;
+            text-decoration:none;
+
+            margin-left:20px;
+
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:#38bdf8;
+        }
+
+        .hero{
+
+            height:90vh;
+
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+
+            text-align:center;
+
+            background:
+            linear-gradient(
+                135deg,
+                #0ea5e9,
+                #1d4ed8,
+                #312e81
+            );
+        }
+
+        .hero h2{
+
+            font-size:70px;
+
+            margin-bottom:20px;
+        }
+
+        .hero p{
+
+            font-size:24px;
+
+            max-width:700px;
+        }
+
+        .btn{
+
+            margin-top:30px;
+
+            padding:15px 35px;
+
+            background:#38bdf8;
+
+            color:black;
+
+            text-decoration:none;
+
+            border-radius:12px;
+
+            font-weight:bold;
+
+            transition:0.3s;
+        }
+
+        .btn:hover{
+
+            transform:scale(1.1);
+
+            box-shadow:0 0 20px #38bdf8;
+        }
+
+        .content{
+
+            width:90%;
+
+            max-width:1300px;
+
+            margin:auto;
+
+            padding:70px 0;
+        }
+
+        .content h2{
+
+            color:#38bdf8;
+
+            margin-bottom:20px;
+
+            font-size:40px;
+        }
+
+        .content p{
+
+            line-height:2;
+
+            color:#cbd5e1;
+
+            margin-bottom:20px;
+        }
+
+        .cards{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(280px,1fr));
+
+            gap:30px;
+
+            margin-top:40px;
+        }
+
+        .card{
+
+            background:#1e293b;
+
+            padding:30px;
+
+            border-radius:20px;
+
+            transition:0.3s;
+
+            border:1px solid rgba(56,189,248,0.2);
+        }
+
+        .card:hover{
+
+            transform:translateY(-10px);
+
+            box-shadow:0 0 25px #38bdf8;
+        }
+
+        .card h3{
+
+            color:#38bdf8;
+
+            margin-bottom:15px;
+        }
+
+        table{
+
+            width:100%;
+
+            border-collapse:collapse;
+
+            margin-top:30px;
+        }
+
+        table th{
+
+            background:#38bdf8;
+
+            color:black;
+
+            padding:15px;
+        }
+
+        table td{
+
+            padding:15px;
+
+            border:1px solid #334155;
+
+            text-align:center;
+        }
+
+        table tr:nth-child(even){
+
+            background:#1e293b;
+        }
+
+        footer{
+
+            text-align:center;
+
+            padding:40px;
+
+            background:#0f172a;
+
+            margin-top:80px;
+        }
+
+        @media(max-width:768px){
+
+            header{
+
+                flex-direction:column;
+
+                gap:20px;
+            }
+
+            .hero h2{
+                font-size:45px;
+            }
+
+            .hero p{
+                font-size:18px;
+            }
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -15,47 +254,269 @@
     <h1>ESP32 教學網站</h1>
 
     <nav>
-        <a href="versions.html">ESP32版本</a>
-        <a href="gpio.html">GPIO腳位</a>
-        <a href="features.html">功能介紹</a>
-        <a href="modules/led.html">模組教學</a>
+
+        <a href="#versions">ESP32版本</a>
+        <a href="#gpio">GPIO腳位</a>
+        <a href="#features">功能介紹</a>
+        <a href="led.html">LED模組</a>
+
     </nav>
 
 </header>
 
 <section class="hero">
 
-    <h2>從零開始學習 ESP32</h2>
+    <h2>ESP32 基礎教學網站</h2>
 
     <p>
-        完整 GPIO、WiFi、藍牙、
-        感測器、IoT 模組教學
+
+        完整 ESP32 教學、
+        GPIO 腳位、
+        感測器、
+        IoT 模組、
+        接線圖與程式範例
+
     </p>
 
-    <a href="modules/led.html" class="btn">
-        開始學習
+    <a href="led.html" class="btn">
+        開始學習 LED
     </a>
 
 </section>
 
-<section class="cards">
+<section class="content" id="versions">
 
-    <div class="card">
-        <h3>ESP32版本介紹</h3>
-        <p>DevKit、WROOM、S3、C3</p>
-    </div>
+    <h2>ESP32 版本介紹</h2>
 
-    <div class="card">
-        <h3>GPIO 腳位</h3>
-        <p>PWM、ADC、UART、SPI</p>
-    </div>
+    <div class="cards">
 
-    <div class="card">
-        <h3>模組教學</h3>
-        <p>LED、DHT11、OLED等</p>
+        <div class="card">
+
+            <h3>ESP32 DevKit V1</h3>
+
+            <p>
+                最常見的 ESP32 開發板，
+                適合初學者。
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>ESP32-WROOM-32</h3>
+
+            <p>
+                常用 WiFi + Bluetooth 模組。
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>ESP32-S3</h3>
+
+            <p>
+                新世代 ESP32，
+                支援 AI 與 USB。
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>ESP32-C3</h3>
+
+            <p>
+                RISC-V 架構，
+                超低功耗。
+            </p>
+
+        </div>
+
     </div>
 
 </section>
+
+<section class="content" id="gpio">
+
+    <h2>GPIO 腳位介紹</h2>
+
+    <table>
+
+        <tr>
+            <th>GPIO</th>
+            <th>功能</th>
+            <th>用途</th>
+        </tr>
+
+        <tr>
+            <td>GPIO21</td>
+            <td>I2C SDA</td>
+            <td>OLED 感測器</td>
+        </tr>
+
+        <tr>
+            <td>GPIO22</td>
+            <td>I2C SCL</td>
+            <td>OLED 感測器</td>
+        </tr>
+
+        <tr>
+            <td>GPIO23</td>
+            <td>SPI MOSI</td>
+            <td>SPI 傳輸</td>
+        </tr>
+
+        <tr>
+            <td>GPIO2</td>
+            <td>內建 LED</td>
+            <td>LED 控制</td>
+        </tr>
+
+        <tr>
+            <td>GPIO34</td>
+            <td>ADC Input</td>
+            <td>類比輸入</td>
+        </tr>
+
+    </table>
+
+</section>
+
+<section class="content" id="features">
+
+    <h2>ESP32 功能介紹</h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>WiFi</h3>
+
+            <p>
+                可連接無線網路，
+                製作 IoT 系統。
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Bluetooth</h3>
+
+            <p>
+                支援 BLE 與藍牙通訊。
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>PWM</h3>
+
+            <p>
+                控制 LED 與馬達速度。
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>ADC</h3>
+
+            <p>
+                可讀取感測器類比訊號。
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Deep Sleep</h3>
+
+            <p>
+                低功耗模式，
+                適合電池裝置。
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Dual Core</h3>
+
+            <p>
+                雙核心 CPU，
+                提升效能。
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="content">
+
+    <h2>模組教學</h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>LED 模組</h3>
+
+            <p>
+                學習 LED 控制與 GPIO 輸出。
+            </p>
+
+            <a href="led.html" class="btn">
+                進入教學
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h3>DHT11 溫濕度</h3>
+
+            <p>
+                讀取溫度與濕度資料。
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>OLED 顯示器</h3>
+
+            <p>
+                顯示文字與圖形。
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>超音波模組</h3>
+
+            <p>
+                偵測距離與障礙物。
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        ESP32 教學網站 © 2026
+    </p>
+
+</footer>
 
 </body>
 </html>
