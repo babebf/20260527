@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>LED 模組教學</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial;
+            background:#020617;
+            color:white;
+        }
+
+        header{
+
+            background:#0f172a;
+
+            padding:20px 50px;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            border-bottom:1px solid #38bdf8;
+        }
+
+        header h1{
+            color:#38bdf8;
+        }
+
+        nav a{
+
+            color:white;
+
+            text-decoration:none;
+
+            margin-left:20px;
+        }
+
+        nav a:hover{
+            color:#38bdf8;
+        }
+
+        .content{
+
+            width:90%;
+
+            max-width:1200px;
+
+            margin:auto;
+
+            padding:60px 0;
+        }
+
+        h2{
+
+            color:#38bdf8;
+
+            margin-bottom:20px;
+
+            margin-top:40px;
+        }
+
+        p{
+
+            line-height:2;
+
+            color:#cbd5e1;
+        }
+
+        ul{
+
+            margin-left:25px;
+
+            margin-top:20px;
+        }
+
+        ul li{
+
+            margin-bottom:10px;
+        }
+
+        img{
+
+            width:100%;
+
+            max-width:700px;
+
+            margin-top:25px;
+
+            border-radius:15px;
+
+            border:2px solid #38bdf8;
+        }
+
+        table{
+
+            width:100%;
+
+            border-collapse:collapse;
+
+            margin-top:20px;
+        }
+
+        table th{
+
+            background:#38bdf8;
+
+            color:black;
+
+            padding:15px;
+        }
+
+        table td{
+
+            border:1px solid #334155;
+
+            padding:15px;
+
+            text-align:center;
+        }
+
+        pre{
+
+            background:#0f172a;
+
+            padding:25px;
+
+            border-radius:15px;
+
+            overflow:auto;
+
+            margin-top:20px;
+
+            border:1px solid #38bdf8;
+        }
+
+        code{
+
+            color:#38bdf8;
+
+            line-height:1.8;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>LED 模組教學</h1>
+
+    <nav>
+
+        <a href="index.html">首頁</a>
+
+    </nav>
+
+</header>
+
+<section class="content">
+
+    <h2>LED 模組介紹</h2>
+
+    <p>
+
+        LED 是最基礎的電子元件，
+        可控制燈光亮滅，
+        常用於學習 GPIO 輸出。
+
+    </p>
+
+    <h2>材料準備</h2>
+
+    <ul>
+
+        <li>ESP32 開發板</li>
+
+        <li>LED</li>
+
+        <li>220Ω 電阻</li>
+
+        <li>麵包板</li>
+
+        <li>杜邦線</li>
+
+    </ul>
+
+    <h2>GPIO 腳位介紹</h2>
+
+    <table>
+
+        <tr>
+            <th>腳位</th>
+            <th>功能</th>
+        </tr>
+
+        <tr>
+            <td>GPIO23</td>
+            <td>LED 訊號輸出</td>
+        </tr>
+
+        <tr>
+            <td>GND</td>
+            <td>接地</td>
+        </tr>
+
+    </table>
+
+    <h2>接線方式</h2>
+
+    <ul>
+
+        <li>LED 長腳 → GPIO23</li>
+
+        <li>LED 短腳 → 電阻 → GND</li>
+
+    </ul>
+
+    <h2>接線範例圖</h2>
+
+    <img src="images/led-wiring.png">
+
+    <h2>Arduino 程式碼</h2>
+
+<pre>
+<code>
+
+int led = 23;
+
+void setup() {
+
+    pinMode(led, OUTPUT);
+
+}
+
+void loop() {
+
+    digitalWrite(led, HIGH);
+
+    delay(1000);
+
+    digitalWrite(led, LOW);
+
+    delay(1000);
+
+}
+
+</code>
+</pre>
+
+    <h2>程式說明</h2>
+
+    <p>
+
+        digitalWrite(HIGH)
+        會讓 LED 亮起。
+
+        digitalWrite(LOW)
+        會讓 LED 熄滅。
+
+        delay(1000)
+        表示等待 1 秒。
+
+    </p>
+
+    <h2>延伸應用</h2>
+
+    <ul>
+
+        <li>呼吸燈</li>
+
+        <li>交通號誌</li>
+
+        <li>RGB LED 控制</li>
+
+        <li>IoT 狀態燈</li>
+
+    </ul>
+
+</section>
+
+</body>
+</html>
