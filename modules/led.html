@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
-    <title>LED 模組教學</title>
+    <title>LED 教學</title>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
 <header>
@@ -13,30 +16,41 @@
 
 <section class="content">
 
-    <h2>LED 介紹</h2>
+    <h2>LED 模組介紹</h2>
 
     <p>
         LED 是最基礎的電子元件，
-        可用於輸出訊號與燈光控制。
+        可以控制亮滅與閃爍。
     </p>
+
+    <h2>材料準備</h2>
+
+    <ul>
+        <li>ESP32 開發板</li>
+        <li>LED</li>
+        <li>220Ω 電阻</li>
+        <li>麵包板</li>
+    </ul>
 
     <h2>接線方式</h2>
 
     <ul>
-        <li>LED 正極 → GPIO 23</li>
+        <li>LED 正極 → GPIO23</li>
         <li>LED 負極 → GND</li>
     </ul>
 
     <img src="../images/led-wiring.png">
 
-    <h2>範例程式</h2>
+    <h2>Arduino 程式</h2>
 
 <pre>
 <code>
 int led = 23;
 
 void setup() {
+
     pinMode(led, OUTPUT);
+
 }
 
 void loop() {
@@ -46,6 +60,7 @@ void loop() {
 
     digitalWrite(led, LOW);
     delay(1000);
+
 }
 </code>
 </pre>
